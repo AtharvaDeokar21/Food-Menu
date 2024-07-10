@@ -1,0 +1,19 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for item in item_list %}
+        <div class="col">
+            <div class="card h-100">
+                <img src="{{ item.item_image }}" class="card-img-top" alt="{{ item.item_name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.item_name }}</h5>
+                    <p class="card-text">{{ item.item_desc }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">${{ item.item_price }}</h6>
+                    <a href="{% url 'food:detail' item.id %}" class="btn btn-primary btn-sm">Details</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
