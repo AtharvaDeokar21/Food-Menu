@@ -10,6 +10,7 @@
                     <h5 class="card-title">{{ item.item_name }}</h5>
                     <p class="card-text">{{ item.item_desc }}</p>
                     <h6 class="card-subtitle mb-2 text-muted">${{ item.item_price }}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ item.user_name }}</h6>
                     <a href="{% url 'food:detail' item.id %}" class="btn btn-primary btn-sm">Details</a>
                 </div>
             </div>
