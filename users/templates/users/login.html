@@ -1,7 +1,102 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <button type="submit">
-        Login
-    </button>
-</form>
+{% extends 'food/base.html' %}
+
+{% block body %}
+<style>
+    body {
+        background: linear-gradient(45deg, #1a73e8, #673ab7);
+    }
+
+    .login-container {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s, box-shadow 0.3s;
+        max-width: 400px;
+        margin: 5rem auto;
+    }
+
+    .login-container:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-header {
+        background: linear-gradient(45deg, #ff4081, #ff9100);
+        border-radius: 10px 10px 0 0;
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.5rem;
+        color: white;
+        font-weight: bold;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .btn-info {
+        background: linear-gradient(45deg, #2196f3, #21cbf3);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+        width: 100%;
+    }
+
+    .btn-info:hover {
+        background: linear-gradient(45deg, #21cbf3, #2196f3);
+        transform: translateY(-2px);
+    }
+
+    .btn-info:active {
+        transform: translateY(0);
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="login-container">
+                <div class="card-header">
+                    Login
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                                {% endif %}
+                                {% if field.errors %}
+                                    <div class="alert alert-danger">{{ field.errors }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        <button class="btn-info" type="submit">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,20 +1,92 @@
 {% extends 'food/base.html' %}
 
 {% block body %}
-<div class="row row-cols-1 row-cols-md-2 g-4">
-    {% for item in item_list %}
-        <div class="col">
-            <div class="card h-100">
-                <img src="{{ item.item_image }}" class="card-img-top" alt="{{ item.item_name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ item.item_name }}</h5>
-                    <p class="card-text">{{ item.item_desc }}</p>
-                    <h6 class="card-subtitle mb-2 text-muted">${{ item.item_price }}</h6>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ item.user_name }}</h6>
-                    <a href="{% url 'food:detail' item.id %}" class="btn btn-primary btn-sm">Details</a>
+<style>
+    body {
+        background: linear-gradient(45deg, #f3f4f6, #e0e7ff);
+    }
+
+    .container {
+        margin-top: 2rem;
+    }
+
+    .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-bottom: 3px solid #007bff;
+    }
+
+    .card-body {
+        background: #f8f9fa;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+    }
+
+    .card-subtitle {
+        font-size: 0.875rem;
+        color: #888;
+    }
+
+    .btn-primary {
+        background: linear-gradient(45deg, #007bff, #21cbf3);
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        color: white;
+        font-size: 0.875rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(45deg, #21cbf3, #007bff);
+        transform: translateY(-2px);
+    }
+
+    .btn-primary:active {
+        transform: translateY(0);
+    }
+</style>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for item in item_list %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ item.item_image }}" class="card-img-top" alt="{{ item.item_name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.item_name }}</h5>
+                        <p class="card-text">{{ item.item_desc }}</p>
+                        <h6 class="card-subtitle mb-2 text-muted">${{ item.item_price }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ item.user_name }}</h6>
+                        <a href="{% url 'food:detail' item.id %}" class="btn btn-primary btn-sm">Details</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

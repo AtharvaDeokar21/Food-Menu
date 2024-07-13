@@ -1,2 +1,47 @@
-<h1>{{ user.username }}</h1>
-<img width="100px" height="100px" src="{{ user.profile.image.url }}">
+{% extends 'food/base.html' %}
+
+{% block body %}
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .profile-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        text-align: center;
+    }
+    .profile-header {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .profile-image {
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+    .profile-details {
+        margin-bottom: 20px;
+    }
+</style>
+<div class="container">
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>{{ user.username }}</h1>
+        </div>
+        <div class="profile-image">
+            <img width="100px" height="100px" src="{{ user.profile.image.url }}" alt="Profile Image">
+        </div>
+        <div class="profile-details">
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <!-- Add more details as needed -->
+        </div>
+    </div>
+</div>
+{% endblock %}
