@@ -85,7 +85,7 @@ This project is licensed under the MIT License - see the [LICENSE](/LICENSE) fil
 
 Feel free to reach out with any questions or suggestions:
 - **Name:** Atharva Deokar
-- **LinkedIn:** [LinkedIn Profile](www.linkedin.com/in/atharva-deokar-70643628b)
+- **LinkedIn:** [www.linkedin.com/in/atharva-deokar-70643628b]
 - **Email:** atharva.deokar2005@gmail.com
 
 ---
