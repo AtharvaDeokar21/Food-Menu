@@ -3,7 +3,7 @@
 {% block body %}
 <style>
     body {
-        background: linear-gradient(45deg, #f3f4f6, #e0e7ff);
+        background-color: #121212;
     }
 
     .container {
@@ -15,7 +15,9 @@
         border: none;
         border-radius: 10px;
         overflow: hidden;
-        background: #ffffff;
+        background: #1f1f1f;
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
     }
 
     .card:hover {
@@ -30,27 +32,27 @@
     }
 
     .card-body {
-        background: #f8f9fa;
+        background: #2c2c2c;
     }
 
     .card-title {
         font-size: 1.5rem;
         font-weight: bold;
-        color: #333;
+        color: #ffffff;
     }
 
     .card-text {
         font-size: 1rem;
-        color: #555;
+        color: #bbbbbb;
     }
 
     .card-subtitle {
-        font-size: 0.875rem;
-        color: #888;
+        font-size: 0.875rem; 
+        color: #cbb9b9; 
     }
 
     .btn-primary {
-        background: linear-gradient(45deg, #007bff, #21cbf3);
+        background-color: #007bff;
         border: none;
         padding: 0.5rem 1rem;
         border-radius: 5px;
@@ -62,7 +64,7 @@
     }
 
     .btn-primary:hover {
-        background: linear-gradient(45deg, #21cbf3, #007bff);
+        background-color: #0056b3;
         transform: translateY(-2px);
     }
 
@@ -80,8 +82,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ item.item_name }}</h5>
                         <p class="card-text">{{ item.item_desc }}</p>
-                        <h6 class="card-subtitle mb-2 text-muted">${{ item.item_price }}</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ item.user_name }}</h6>
+                        <h6 class="card-subtitle mb-2 font-italic text-white">${{ item.item_price }}</h6>
+                        <h6 class="card-subtitle mb-2 font-italic text-white">{{ item.user_name }}</h6>
                         <a href="{% url 'food:detail' item.id %}" class="btn btn-primary btn-sm">Details</a>
                     </div>
                 </div>
